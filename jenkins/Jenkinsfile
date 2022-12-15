@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+    tools {
+      maven 'Maven 3.8.6'
+      jdk 'Java 17'
+    }
+    stages {
+        stage("Clean up") {
+            steps {
+                deleteDir()
+            }
+        }
+        stage("Clone Repo") {
+            steps {
+                sh "git clone https://github.com/dmcheremisin/demo-jenkins.git"
+            }
+        }
+        stage("Build") {
+            steps {
+                dir("demo-jenkins") {
+                    sh "mvn clean package"
+                }
+            }
+        }
+        stage("Test") {
+            steps {
+                dir("demo-jenkins") {
+                    sh "mvn test"
+                }
+            }
+        }
+    }
+}
