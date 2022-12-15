@@ -14,8 +14,12 @@ public class App
         System.out.println(new App().getMessage());
     }
 
-    private final String getMessage() {
+    private String getMessage() {
         return message;
+    }
+
+    private String getAnotherMessage() {
+        return "Another message";
     }
 
 }
