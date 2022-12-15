@@ -15,7 +15,7 @@ pipeline {
                 sh "mvn test"
             }
         }
-        stage {
+        stage("Completed") {
             steps {
                 echo 'Job completed'
             }
