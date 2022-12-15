@@ -5,28 +5,14 @@ pipeline {
       jdk 'Java 17'
     }
     stages {
-        stage("Clean up") {
-            steps {
-                deleteDir()
-            }
-        }
-        stage("Clone Repo") {
-            steps {
-                sh "git clone https://github.com/dmcheremisin/demo-jenkins.git"
-            }
-        }
         stage("Build") {
             steps {
-                dir("demo-jenkins") {
-                    sh "mvn clean package"
-                }
+                sh "mvn clean package"
             }
         }
         stage("Test") {
             steps {
-                dir("demo-jenkins") {
-                    sh "mvn test"
-                }
+                sh "mvn test"
             }
         }
     }
