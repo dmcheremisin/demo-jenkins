@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    tools {
+      maven 'Maven 3.8.6'
+      jdk 'Java 17'
+    }
+    parameters {
+        booleanParam(defaultValue: false, description: "Enable service?", name: "myBoolean")
+    }
+    stages {
+        stage("Demo") {
+            steps {
+                echo "booleanParam is set to: ${params.myBoolean}"
+            }
+        }
+    }
+}
