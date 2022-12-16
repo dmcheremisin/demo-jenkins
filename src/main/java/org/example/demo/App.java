@@ -19,7 +19,7 @@ public class App
     }
 
     private String getAnotherMessage() {
-        return "Another message";
+        return "Another message!";
     }
 
 }
