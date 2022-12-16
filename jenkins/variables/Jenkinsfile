@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    environment {
+        def myString = "Hello World"
+        def myBoolean = true
+        def myNumber = 3453
+    }
+    stages {
+        stage("Demo") {
+            steps {
+                echo "String is set to: ${myString}"
+                echo "Boolean is set to: ${myBoolean}"
+                echo "Number is set to: ${myNumber}"
+            }
+        }
+    }
+}

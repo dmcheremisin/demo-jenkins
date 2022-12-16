@@ -1,0 +1,17 @@
+pipeline {
+    agent any
+    parameters {
+        string(defaultValue: "Noname", description: "What is the deployment name?", name: "deployName")
+        choice(choices: ["EU-WEST", "EU-EAST", "USA-North", "USA-South"], description: "Which environment to deploy?", name: "deployEnv")
+        booleanParam(defaultValue: false, description: "Confirm deployment?", name: "confirm")
+    }
+    stages {
+        stage("Demo") {
+            steps {
+                echo "Deployment name is: ${params.deployName}"
+                echo "Deployment env is: ${params.deployEnv}"
+                echo "Deployment confirmation: ${params.confirm}"
+            }
+        }
+    }
+}

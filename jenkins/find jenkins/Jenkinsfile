@@ -1,0 +1,12 @@
+pipeline {
+    agent any
+    stages {
+        stage("Find Jenkins") {
+            steps {
+                echo 'Jenkins process id is: '
+                sh "ps aux | grep jenkins | grep -v 'grep' | awk '{print $2}'"
+            }
+        }
+    }
+}
+
